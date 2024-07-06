@@ -16,11 +16,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const designSize = Size(360, 690);
+
     return ScreenUtilInit(
       minTextAdapt: true,
+      designSize: designSize,
       splitScreenMode: true,
-      fontSizeResolver: (fontSize, instance) =>
-          FontSizeResolvers.radius(fontSize, instance),
+      fontSizeResolver: (fontSize, instance) {
+        final display = View.of(context).display;
+        final screenSize = display.size / display.devicePixelRatio;
+        final scaleWidth = screenSize.width / designSize.width;
+
+        return fontSize * scaleWidth;
+      },
       builder: (context, child) {
         return MultiBlocProvider(
           providers: [
