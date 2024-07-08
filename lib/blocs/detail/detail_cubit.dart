@@ -11,12 +11,6 @@ class DetailCubit extends Cubit<DetailState> {
   final _apiProvider = APIProvider();
 
   Future<void> getDetail(int id) async {
-    try {
-      emit(DetailLoading());
-      final data = await _apiProvider.getDetail(id);
-      emit(DetailLoaded(data));
-    } catch (e) {
-      emit(DetailError());
-    }
+    // TODO: . Ambil dari dari API menggunakan api provider
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -86,34 +85,6 @@ class AppTheme {
     colorScheme: const ColorScheme.light(
       primary: primaryColor,
       secondary: secondaryColor,
-    ),
-    inputDecorationTheme: const InputDecorationTheme(
-      floatingLabelStyle: TextStyle(color: AppTheme.primaryColor),
-      floatingLabelBehavior: FloatingLabelBehavior.always,
-      focusedBorder: UnderlineInputBorder(
-        borderSide: BorderSide(color: AppTheme.primaryColor),
-      ),
-    ),
-    appBarTheme: AppBarTheme(
-      elevation: 0,
-      systemOverlayStyle: const SystemUiOverlayStyle(
-        statusBarBrightness: Brightness.light,
-        statusBarColor: Colors.white,
-        systemNavigationBarColor: Colors.white,
-        systemNavigationBarContrastEnforced: true,
-        systemNavigationBarIconBrightness: Brightness.dark,
-        statusBarIconBrightness: Brightness.dark,
-      ),
-      backgroundColor: Colors.white,
-      shadowColor: Colors.transparent,
-      titleTextStyle: TextStyle(
-        color: textColor,
-        fontSize: 18.sp,
-        fontWeight: FontWeight.bold,
-      ),
-      iconTheme: const IconThemeData(
-        color: AppTheme.primaryColor,
-      ),
     ),
   );
 }

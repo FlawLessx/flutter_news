@@ -21,17 +21,13 @@ class CategoryItem extends StatelessWidget {
         height: 30.h,
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.w),
+          // TODO: Ubah border radius
           border: isSelected || onTap == null
               ? null
               : Border.all(
                   color: Theme.of(context).primaryColor,
                 ),
-          color: isSelected
-              ? Theme.of(context).primaryColor
-              : onTap == null
-                  ? Colors.grey.shade300
-                  : null,
+          // TODO: Ubah warna jika selected atau jika ontap null
         ),
         child: Center(
           child: Text(

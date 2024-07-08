@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:myapp/blocs/featured/featured_cubit.dart';
 import 'package:myapp/constants/app_route.dart';
 import 'package:myapp/models/news.dart';
 import 'package:myapp/pages/detail/detail_page.dart';
@@ -13,27 +11,10 @@ class FeaturedSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FeaturedCubit, FeaturedState>(
-      builder: (context, state) {
-        if (state is FeaturedLoaded) {
-          return SizedBox(
-            height: 200.h,
-            width: double.maxFinite,
-            child: PageView.builder(
-              itemCount: state.data.length,
-              itemBuilder: (context, index) {
-                return FeaturedItem(data: state.data[index]);
-              },
-            ),
-          );
-        }
-
-        return ShimmerWidget(
-          height: 200.h,
-          width: double.maxFinite,
-          radius: 0,
-        );
-      },
+    return ShimmerWidget(
+      height: 200.h,
+      width: double.maxFinite,
+      radius: 0,
     );
   }
 }

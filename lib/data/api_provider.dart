@@ -19,10 +19,13 @@ class APIProvider {
   Future<List<News>> getNewest({String? category}) async {
     final response = await client.get(ApiPath.newest);
 
-    final datas = List<News>.from(json.decode(response.data).map((e) => News.fromJson(e)).toList());
+    final datas = List<News>.from(
+        json.decode(response.data).map((e) => News.fromJson(e)).toList());
 
     if (category != null) {
-      return datas.where((element) => element.category.contains(category)).toList();
+      return datas
+          .where((element) => element.category.contains(category))
+          .toList();
     } else {
       return datas;
     }
@@ -31,7 +34,8 @@ class APIProvider {
   Future<List<News>> getFeatured() async {
     final response = await client.get(ApiPath.featured);
 
-    return List<News>.from(json.decode(response.data).map((e) => News.fromJson(e)).toList());
+    return List<News>.from(
+        json.decode(response.data).map((e) => News.fromJson(e)).toList());
   }
 
   Future<List<String>> getCategory() async {
@@ -41,9 +45,16 @@ class APIProvider {
   }
 
   Future<News> getDetail(int id) async {
-    final response = await client.get(ApiPath.detail);
-    final datas =List<News>.from(json.decode(response.data).map((e) => News.fromJson(e)).toList());
+    // TODO: 5. Ambil data dari API
 
-    return datas.where((element) => element.id == id).first;
+    return News(
+      id: id,
+      title: '',
+      date: '',
+      image: '',
+      content: '',
+      writer: '',
+      category: [],
+    );
   }
 }

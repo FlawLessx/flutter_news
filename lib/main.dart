@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:myapp/blocs/category/category_cubit.dart';
-import 'package:myapp/blocs/featured/featured_cubit.dart';
 import 'package:myapp/blocs/newest/newest_cubit.dart';
 import 'package:myapp/constants/app_route.dart';
 import 'package:myapp/constants/app_theme.dart';
@@ -16,48 +15,44 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const designSize = Size(360, 690);
+    // TODO: 1. Ubah inisiasi
+    // const designSize = Size(360, 690);
+    // return ScreenUtilInit(
+    //   minTextAdapt: true,
+    //   designSize: designSize,
+    //   splitScreenMode: true,
+    //   fontSizeResolver: (fontSize, instance) {
+    //     final display = View.of(context).display;
+    //     final screenSize = display.size / display.devicePixelRatio;
+    //     final scaleWidth = screenSize.width / designSize.width;
 
-    return ScreenUtilInit(
-      minTextAdapt: true,
-      designSize: designSize,
-      splitScreenMode: true,
-      fontSizeResolver: (fontSize, instance) {
-        final display = View.of(context).display;
-        final screenSize = display.size / display.devicePixelRatio;
-        final scaleWidth = screenSize.width / designSize.width;
-
-        return fontSize * scaleWidth;
-      },
-      builder: (context, child) {
-        return MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => CategoryCubit(),
-            ),
-            BlocProvider(
-              create: (context) => FeaturedCubit(),
-            ),
-            BlocProvider(
-              create: (context) => NewestCubit(),
-            ),
-          ],
-          child: MaterialApp(
-            title: 'Flutter News',
-            theme: AppTheme.appTheme,
-            debugShowCheckedModeBanner: false,
-            initialRoute: AppRoute.home,
-            onGenerateRoute: appRoute,
-          ),
-        );
-      },
-    );
-
-    // return MaterialApp(
-    //       title: 'Flutter Demo',
-    //       theme: AppTheme.appTheme,
-    //        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    //     return fontSize * scaleWidth;
+    //   },
+    //   builder: (context, child) {
+    //     return MultiBlocProvider(
+    //       providers: [
+    //         BlocProvider(
+    //           create: (context) => CategoryCubit(),
+    //         ),
+    //         BlocProvider(
+    //           create: (context) => NewestCubit(),
+    //         ),
+    //       ],
+    //       child: MaterialApp(
+    //         title: 'Flutter News',
+    //         theme: AppTheme.appTheme,
+    //         debugShowCheckedModeBanner: false,
+    //         initialRoute: AppRoute.home,
+    //         onGenerateRoute: appRoute,
+    //       ),
     //     );
+    //   },
+    // );
+
+    return const MaterialApp(
+      title: 'Flutter Demo',
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    );
   }
 }
 
@@ -104,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
