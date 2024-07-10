@@ -72,15 +72,7 @@ class NewestItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(
-          context,
-          AppRoute.detail,
-          arguments: DetailPageArgs(
-            id: data.id,
-            image: data.image,
-            heroTag: '${data.id}-newest',
-          ),
-        );
+       // TODO: Navigasi ke detail
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15.sp),
@@ -98,70 +90,7 @@ class NewestItem extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                top: 70.h,
-                child: Container(
-                  color: Colors.white,
-                  padding: EdgeInsets.symmetric(horizontal: 10.sp),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        data.title,
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      Gap(5.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: 'by ',
-                                    style:
-                                        Theme.of(context).textTheme.labelMedium,
-                                  ),
-                                  TextSpan(
-                                    text: data.writer,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .labelMedium!
-                                        .copyWith(
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          Gap(10.w),
-                          Text(
-                            data.date,
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelMedium!
-                                .copyWith(),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+             // TODO: Informasi berita
             ],
           ),
         ),
